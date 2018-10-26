@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   Name = ' Geralds Angular practice ';
+  goal = ' watch Finding Nemo';
 }
