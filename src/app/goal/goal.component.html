@@ -1,0 +1,24 @@
+<h1>
+  Here are my {{targets}} for this week!
+</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <ul>
+      <div class="jumbotron " *ngFor='let goal of goals let i = index'>
+        <li appStrikethrough > <h4>{{goal.day}}:</h4> {{goal.name}}
+        <br>
+        <button class="btn btn danger" (click)='toogleDetails(i)'>More</button> 
+        
+    
+        <app-goal-details  (addGoal)='addNewGoal ($event)' *ngIf="goal.showDescription" [goal]='goal' (isComplete)= 'completeGoal($event,i)'></app-goal-details>
+     
+        </li>
+    </div>
+    </ul>
+    <p *ngIf="goals.length>3"> You have too many goals</p>
+  </div>
+  <div class=" form jumbotron col-md-6">
+    <app-goal-form></app-goal-form>
+  </div>
+</div>
